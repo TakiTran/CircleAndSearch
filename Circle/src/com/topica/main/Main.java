@@ -10,7 +10,7 @@ import com.topica.model.Circle;
 
 public class Main {
 	public static final String MESSAGE_ERROR_INPUT = "Error: input not is number.";
-	public static final String MESSAGE_ENTER_INPUT = "\nEnter Area: ";
+	public static final String MESSAGE_ENTER_INPUT = "Enter Area: ";
 	public static final String MESSAGE_LIST_INDEX = "Index: ";
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -26,13 +26,12 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print(MESSAGE_ENTER_INPUT);
 		double area = 0;
-		boolean check = false;
-		while (!check) {
+		while (true) {
 			try {
 				area = scanner.nextDouble();
 				break;
 			} catch (InputMismatchException e) {
-				System.err.print(MESSAGE_ERROR_INPUT);
+				System.err.println(MESSAGE_ERROR_INPUT);
 				System.out.print(MESSAGE_ENTER_INPUT);
 				scanner.nextLine();
 			}
