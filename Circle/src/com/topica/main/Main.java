@@ -9,6 +9,9 @@ import java.util.Scanner;
 import com.topica.model.Circle;
 
 public class Main {
+	public static final String MESSAGE_ERROR_INPUT = "Error: input not is number.";
+	public static final String MESSAGE_ENTER_INPUT = "\nEnter Area: ";
+	public static final String MESSAGE_LIST_INDEX = "Index: ";
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		List<Circle> circles = new ArrayList<Circle>();
@@ -21,7 +24,7 @@ public class Main {
 			System.out.println(circle.getRadius());
 		}
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("=========> Area: ");
+		System.out.print(MESSAGE_ENTER_INPUT);
 		double area = 0;
 		boolean check = false;
 		while (!check) {
@@ -29,8 +32,8 @@ public class Main {
 				area = scanner.nextDouble();
 				break;
 			} catch (InputMismatchException e) {
-				System.out.print("Error: input not is number.");
-				System.out.print("\n=========> Area: ");
+				System.err.print(MESSAGE_ERROR_INPUT);
+				System.out.print(MESSAGE_ENTER_INPUT);
 				scanner.nextLine();
 			}
 		}
@@ -48,7 +51,7 @@ public class Main {
 				stringIndex += i + " ";
 			}
 		}
-		System.out.println("index = " + stringIndex);
+		System.out.println(MESSAGE_LIST_INDEX + stringIndex);
 
 	}
 
